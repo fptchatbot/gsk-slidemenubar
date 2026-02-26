@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Layanan Google Workspace</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      background: #f8f9fa;
+    }
+
+    /* SIDEBAR KIRI */
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 20px 0;
+    }
+
+    .sidebar h3 {
+      font-size: 12px;
+      color: #999;
+      padding: 0 20px 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 15px;
+      color: #1a73e8;
+      cursor: pointer;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .sidebar button:hover {
+      background: #f1f3f4;
+    }
+
+    .sidebar button.active {
+      background: #e8f0fe;
+      border-left: 3px solid #1a73e8;
+      color: #1a73e8;
+    }
+
+    /* KONTEN KANAN */
+    .content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .panel h2 {
+      font-size: 22px;
+      color: #202124;
+      margin-bottom: 8px;
+    }
+
+    .panel p {
+      color: #5f6368;
+      font-size: 14px;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .panel ul {
+      padding-left: 20px;
+      color: #5f6368;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h3>Layanan</h3>
+    <button class="active" onclick="show('mail', this)">📧 Mail</button>
+    <button onclick="show('drive', this)">💾 Drive</button>
+    <button onclick="show('docs', this)">📄 Dokumen</button>
+    <button onclick="show('meet', this)">🎥 Meet</button>
+  </div>
+
+  <div class="content">
+
+    <div class="panel active" id="mail">
+      <div class="icon">📧</div>
+      <h2>Gmail</h2>
+      <p>Layanan email profesional dari Google yang mudah digunakan untuk kebutuhan bisnis maupun personal.</p>
+      <ul>
+        <li>Email dengan nama domain perusahaan sendiri</li>
+        <li>Kotak masuk otomatis terorganisir</li>
+        <li>Notifikasi pengingat pesan belum dibaca</li>
+        <li>Fitur Snooze untuk menunda email</li>
+      </ul>
+    </div>
+
+    <div class="panel" id="drive">
+      <div class="icon">💾</div>
+      <h2>Google Drive</h2>
+      <p>Penyimpanan cloud yang memungkinkan kamu menyimpan dan berbagi file dari mana saja.</p>
+      <ul>
+        <li>Penyimpanan hingga 15 GB gratis</li>
+        <li>Berbagi file dengan mudah lewat link</li>
+        <li>Akses dari semua perangkat</li>
+        <li>Kolaborasi real-time bersama tim</li>
+      </ul>
+    </div>
+
+    <div class="panel" id="docs">
+      <div class="icon">📄</div>
+      <h2>Google Docs</h2>
+      <p>Buat dan edit dokumen langsung di browser tanpa perlu install software tambahan.</p>
+      <ul>
+        <li>Edit bersama secara bersamaan</li>
+        <li>Riwayat versi dokumen tersimpan otomatis</li>
+        <li>Tersedia Docs, Sheets, dan Slides</li>
+        <li>Kompatibel dengan format Microsoft Office</li>
+      </ul>
+    </div>
+
+    <div class="panel" id="meet">
+      <div class="icon">🎥</div>
+      <h2>Google Meet</h2>
+      <p>Platform video conference yang aman dan mudah digunakan untuk rapat online.</p>
+      <ul>
+        <li>Video call hingga 100 peserta (gratis)</li>
+        <li>Tidak perlu install aplikasi</li>
+        <li>Integrasi langsung dengan Google Calendar</li>
+        <li>Fitur share screen dan rekam rapat</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    function show(id, btn) {
+      // sembunyikan semua panel
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
+      // tampilkan panel yang dipilih
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
